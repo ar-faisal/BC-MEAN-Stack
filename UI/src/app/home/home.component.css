@@ -1,0 +1,23 @@
+.filter{
+    position: fixed;
+    width: 60px;
+  height: 60px;
+    bottom: 30px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50%;
+  background-color: #000307; /* Change to your desired background color */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+}
+.filter:hover {
+    background-color: #0057b3ce; /* Change to your desired hover color */
+  }

@@ -1,0 +1,118 @@
+<!-- home.component.html -->
+
+<div>
+  
+  <div class="filter" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+    <img src="../../assets/filter.png" alt="FILTER" width="40" height="40">
+  </div>
+  <br><br>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Filter Data</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <div class="mb-3">
+            <label for="selectAttribute" class="form-label">Select Attribute:</label>
+            <select id="selectAttribute" class="form-select" [(ngModel)]="selectedAttribute" (change)="onAttributeChange()">
+              <option *ngFor="let attribute of attributes" [value]="attribute">{{ attribute }}</option>
+            </select>
+          </div>
+  
+          <div class="mb-3">
+            <label for="selectValue" class="form-label">Select Value:</label>
+            <select id="selectValue" class="form-select" [(ngModel)]="selectedValue">
+              <option *ngFor="let value of attributeValues" [value]="value">{{ value }}</option>
+            </select>
+          </div>
+  
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="fetchData()">Fetch Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Chart 1 -->
+      <div *ngIf="chartOptions1" class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart"
+                       [xaxis]="chartOptions1.xaxis" [dataLabels]="chartOptions1.dataLabels"
+                       [grid]="chartOptions1.grid" [stroke]="chartOptions1.stroke"
+                       [title]="chartOptions1.title">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Chart 2 -->
+      <div *ngIf="chartOptions2" class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                       [plotOptions]="chartOptions2.plotOptions" [dataLabels]="chartOptions2.dataLabels"
+                       [title]="chartOptions2.title" [xaxis]="chartOptions2.xaxis">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Chart 3 -->
+      <div *ngIf="chartOptions3" class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart"
+                       [plotOptions]="chartOptions3.plotOptions" [dataLabels]="chartOptions3.dataLabels"
+                       [title]="chartOptions3.title" [labels]="chartOptions3.labels">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Chart 4 -->
+      <div *ngIf="chartOptions4" class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart"
+                       [plotOptions]="chartOptions4.plotOptions"
+                       [xaxis]="chartOptions4.xaxis" [title]="chartOptions4.title">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Chart 5 -->
+      <div *ngIf="chartOptions5" class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card mb-4 shadow">
+          <div class="card-body">
+            <apx-chart [series]="chartOptions5.series" [chart]="chartOptions5.chart"
+                       [yaxis]="chartOptions5.yaxis"
+                       [xaxis]="chartOptions5.xaxis" [title]="chartOptions5.title">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    
+  </div>
+</div>
